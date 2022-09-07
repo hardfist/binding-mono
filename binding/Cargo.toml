@@ -7,7 +7,7 @@ version = "0.0.0"
 crate-type = ["cdylib"]
 
 [dependencies]
-binding_options = {path="../binding_options", features=["node-api"]}
+rspack_core = {path="../rspack_core", features=["node-api"]}
 # Default enable napi4 feature, see https://nodejs.org/api/n-api.html#node-api-version-matrix
 napi = { git = "https://github.com/speedy-js/napi-rs", branch = "speedy-release", default-features = false, features = [
   "async",

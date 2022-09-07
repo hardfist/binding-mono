@@ -1,4 +1,5 @@
-use binding_options::{CompilerOptions, Mode, Target};
+mod options;
+use options::{CompilerOptions,Target,Mode};
 pub fn build(options_str:&str ){
     let options: CompilerOptions = serde_json::from_str(options_str).unwrap();
     dbg!(options);
@@ -14,5 +15,5 @@ pub fn main(){
 
     build("{}");
     build(r#"{"mode": "DEVELOPMENT"}"#);
-    build(r#"{"mode": "DEVELOPMENT", "targets": ["ES3"]}"#);
+    build(r#"{"mode": "DEVELOPMENT", "targets": ["ES3","ES5"]}"#);
 }

@@ -1,5 +1,5 @@
 #![deny(clippy::all)]
-use binding_options::{CompilerOptions};
+use rspack_core::options::{CompilerOptions};
 use napi::{Result};
 use napi_derive::napi;
 
