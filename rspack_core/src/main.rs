@@ -1,16 +1,18 @@
 mod options;
-use options::{CompilerOptions,Target,Mode};
+use options::{BindingOptions,Target,Mode,Module};
 pub fn build(options_str:&str ){
-    let options: CompilerOptions = serde_json::from_str(options_str).unwrap();
+    let options: BindingOptions = serde_json::from_str(options_str).unwrap();
     dbg!(options);
 }
 pub fn main(){
-    let x = CompilerOptions{
+    let mut options = BindingOptions{
         mode: Mode::DEVELOPMENT,
         targets: vec![Target::ES3,Target::ES5],
-        context: "hello world".to_owned()
+        context: "hello world".to_owned(),
+        module: Module::default()
     };
-    let str = serde_json::to_string(&x).unwrap();
+    
+    let str = serde_json::to_string(&options).unwrap();
     dbg!(&str);
 
     build("{}");
