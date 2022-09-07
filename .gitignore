@@ -1,0 +1,74 @@
+# Built files
+/*.js
+!jest.config.js
+/*.map
+/*.d.ts
+native/artifacts.json
+artifacts.json
+*.node
+/scripts/npm/**/swc
+/scripts/npm/**/swc.exe
+
+# I used this for debugging
+lab.mjs
+
+
+target/
+**/*.bk
+*.log
+
+.vscode/*
+!.vscode/settings.json
+*.swp
+
+/.idea
+*.iml
+
+.DS_Store
+
+node_modules/
+
+
+# Flamegraph
+*.svg
+package-lock.json
+*.data
+*.old
+*.stacks
+
+# Coverage datas
+*.zip
+*.info
+# Custom cargo target directory for converages
+.COVERAGE_DIR
+
+**/*~
+**/node_modules
+**/.DS_Store
+
+pkg/
+
+.idea/
+
+
+# Generated while testing
+*.tmp.js
+
+# insta-rs
+*.new
+
+# Used to see output of babel.
+/lab
+
+*.mm_profdata
+.tsbuildinfo
+.swc/
+
+# Used by scripts
+*.tmp.txt
+
+# Turborepo
+.turbo/
+
+# For examples
+dist/

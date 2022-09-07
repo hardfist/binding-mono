@@ -1,0 +1,25 @@
+[package]
+name = "binding_options"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[features]
+default = []
+node-api = ["napi-derive", "napi"]
+
+
+[dependencies]
+serde_json = "1.0.85"
+serde = {version="1.0.144", features=["derive"]}
+[dependencies.napi]
+git = "https://github.com/speedy-js/napi-rs"
+branch = "speedy-release"
+features = ["async", "tokio_rt", "serde-json"]
+optional = true
+
+[dependencies.napi-derive]
+git = "https://github.com/speedy-js/napi-rs"
+branch = "speedy-release"
+optional = true

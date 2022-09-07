@@ -1,0 +1,25 @@
+[package]
+edition = "2021"
+name = "binding-demo"
+version = "0.0.0"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+binding_options = {path="../binding_options", features=["node-api"]}
+# Default enable napi4 feature, see https://nodejs.org/api/n-api.html#node-api-version-matrix
+napi = { git = "https://github.com/speedy-js/napi-rs", branch = "speedy-release", default-features = false, features = [
+  "async",
+  "tokio_rt",
+  "serde-json",
+  "napi5",
+] }
+napi-derive = { git = "https://github.com/speedy-js/napi-rs", branch = "speedy-release" }
+napi-sys = { git = "https://github.com/speedy-js/napi-rs", branch = "speedy-release" }
+
+[build-dependencies]
+napi-build = "2.0.1"
+
+[profile.release]
+lto = true
