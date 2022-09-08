@@ -21,14 +21,14 @@ pub enum Target {
     ES3,
     ES5
 }
-type Generator = Box<dyn Fn() -> ()>;
-
-
+type Callback = Box<dyn Fn() -> ()>;
+#[cfg_attr(feature="node-api",napi(object))]
 #[derive(Deserialize,Serialize,Default)]
 pub struct Module {
     #[serde(skip_deserializing,skip_serializing)]
-    generator: Option<Generator>,
-    test: String
+    #[cfg_attr(feature="node-api",napi(skip))]
+    pub generator: Option<Callback>,
+    pub test: String
 }
 impl std::fmt::Debug for Module {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
