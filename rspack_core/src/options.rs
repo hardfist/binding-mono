@@ -65,7 +65,7 @@ pub struct BindingOptions {
 pub struct Callback(Option<Box<dyn Fn() -> ()>>);
 impl Default for Callback{
     fn default() -> Self {
-       Self{0: None}
+       Self(None)
     }
 }
 #[cfg(feature="node-api")]
@@ -77,7 +77,7 @@ unsafe fn to_napi_value(env: sys::napi_env, val: Self) -> Result<sys::napi_value
   }
 }
 #[cfg(feature="node-api")]
-impl FromNapiValue for Callback{
+impl FromNapiValue for Callback {
   unsafe fn from_napi_value(env: sys::napi_env, napi_val: sys::napi_value) -> Result<Self> {
     let mut value = ptr::null_mut();
     let value = unsafe { Box::from_raw(value as *mut u32) };
