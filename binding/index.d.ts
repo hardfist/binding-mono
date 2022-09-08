@@ -11,8 +11,12 @@ export const enum Target {
   ES3 = 0,
   ES5 = 1
 }
+export interface ModuleUseRule {
+  loader?: (...args: any[]) => any
+}
 export interface Module {
-  generator?: Callback
+  uses?: Callback
+  bindingUses?: ModuleUseRule
   test: string
 }
 export interface BindingOptions {

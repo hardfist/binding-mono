@@ -50,7 +50,11 @@ function normalizeConfig(config: RawConfig): BindingConfig{
     targets: resolveTarget(config.target),
     context: config.context ?? "",
     module: {
-      generator: "",
+      bindingUses: {
+        loader: () => {
+          console.log('loader loaded')
+        }
+      },
       test: ""
     },
   }

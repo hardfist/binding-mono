@@ -49,7 +49,11 @@ function normalizeConfig(config) {
         targets: resolveTarget(config.target),
         context: (_a = config.context) !== null && _a !== void 0 ? _a : "",
         module: {
-            generator: "",
+            bindingUses: {
+                loader: () => {
+                    console.log('loader loaded');
+                }
+            },
             test: ""
         },
     };
