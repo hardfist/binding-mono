@@ -15,7 +15,8 @@ export interface RawConfig {
 export interface BindingConfig {
   mode: Mode,
   targets: Target[],
-  context: string
+  context: string,
+  module: any,
 }
 function resolveMode(mode?: string){
   if(!mode){
@@ -47,7 +48,11 @@ function normalizeConfig(config: RawConfig): BindingConfig{
   return {
     mode: resolveMode(config.mode),
     targets: resolveTarget(config.target),
-    context: config.context ?? ""
+    context: config.context ?? "",
+    module: {
+      generator: "",
+      test: ""
+    },
   }
 }
 

@@ -47,7 +47,11 @@ function normalizeConfig(config) {
     return {
         mode: resolveMode(config.mode),
         targets: resolveTarget(config.target),
-        context: (_a = config.context) !== null && _a !== void 0 ? _a : ""
+        context: (_a = config.context) !== null && _a !== void 0 ? _a : "",
+        module: {
+            generator: "",
+            test: ""
+        },
     };
 }
 function build(raw_config) {

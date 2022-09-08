@@ -236,6 +236,8 @@ if (!nativeBinding) {
   throw new Error(`Failed to load native binding`)
 }
 
-const { build } = nativeBinding
+const { Mode, Target, build } = nativeBinding
 
+module.exports.Mode = Mode
+module.exports.Target = Target
 module.exports.build = build

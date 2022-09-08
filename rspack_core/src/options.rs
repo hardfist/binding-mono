@@ -1,9 +1,8 @@
-
 #[cfg(feature="node-api")]
 use napi_derive::napi;
 #[cfg(feature="node-api")]
 use napi::bindgen_prelude::ToNapiValue;
-
+use crate::callback::Callback;
 use serde::{Deserialize,Serialize};
 
 #[cfg_attr(feature="node-api",napi)]
@@ -21,12 +20,15 @@ pub enum Target {
     ES3,
     ES5
 }
-type Callback = Box<dyn Fn() -> ()>;
+
+
+
+
+
 #[cfg_attr(feature="node-api",napi(object))]
 #[derive(Deserialize,Serialize,Default)]
 pub struct Module {
     #[serde(skip_deserializing,skip_serializing)]
-    #[cfg_attr(feature="node-api",napi(skip))]
     pub generator: Option<Callback>,
     pub test: String
 }

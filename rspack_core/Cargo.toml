@@ -22,3 +22,6 @@ optional = true
 git = "https://github.com/speedy-js/napi-rs"
 branch = "speedy-release"
 optional = true
+
+napi-derive = { git = "https://github.com/speedy-js/napi-rs", branch = "speedy-release" }
+napi-sys = { git = "https://github.com/speedy-js/napi-rs", branch = "speedy-release" }
